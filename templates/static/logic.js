@@ -5,6 +5,7 @@ var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{
   accessToken: API_KEY
 });
 
+var API_KEY = "pk.eyJ1IjoibmF0bGFzcyIsImEiOiJja2p6dmV3ZW8wYm1iMnZwcGdhdDRmeWg1In0.xQh7kIoJo-iM3AR23qH-Ng";
 
 // Initialize all of the LayerGroups we'll be using
 var layers = {
@@ -16,7 +17,7 @@ var layers = {
 
 // Create the map with our layers
 var map = L.map("mapid", {
-  center: [40.73, -74.0059],
+  center: [39.8283, 98.5795],
   zoom: 12,
   layers: [
     layers.fifteen,
@@ -71,6 +72,35 @@ info.onAdd = function() {
 // Add the info legend to the map
 info.addTo(map);
 
-var data = event
+var icons = {
+  fifteen: L.CircleMarker.icon({
+    markerColor: "red",
+    radius: 10
+  }),
+  sixteen: L.CircleMarker.icon({
+    markerColor: "green",
+    radius: 10
+  }),
+  seventeen: L.CircleMarker.icon({
+    markerColor: "blue",
+    radius: 10
+  }),
+  eighteen: L.CircleMarker.icon({
+    markerColor: "yellow",
+    radius: 10
+  }),
+};
+
+var url = "/year=<year>";
+
+d3.json(url).then(function(user) {
+  console.log(user);
+});
+
+function optionChanged(newSelection){
+  sampleSelect(newSelection);
+}
+
+init();
 
 console.log()
