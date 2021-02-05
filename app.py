@@ -29,7 +29,8 @@ def return_year_data(year):
          returned_data.append(result)
       else:
          exit
-   return render_template("index.html", event=returned_data)
+   #return render_template("index.html", event=returned_data)
+   return jsonify(returned_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
